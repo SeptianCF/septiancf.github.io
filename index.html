@@ -257,6 +257,25 @@ footer{background:var(--black);padding:3rem 5%;display:flex;justify-content:spac
 </style>
 </head>
 <body>
+<script>
+function openModal(id) {
+  var el = document.getElementById(id);
+  if (el) { el.style.display = 'flex'; }
+}
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.g-filter').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  document.querySelectorAll('.g-item').forEach(function(el) {
+    if (cat === 'all' || el.dataset.cat === cat) {
+      el.classList.remove('hidden');
+    } else {
+      el.classList.add('hidden');
+    }
+  });
+}
+</script>
 
 <nav>
   <div class="nav-logo">Septian<span>.</span></div>
